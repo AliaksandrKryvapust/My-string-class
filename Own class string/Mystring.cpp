@@ -1,4 +1,5 @@
 #include "Mystring.h"
+
 Mystring::Mystring()	{
 		str = nullptr;
 		length = 0;	}
@@ -10,7 +11,7 @@ Mystring::Mystring(const char* str)	{
 		this->str[length] = '\0'; }
 Mystring::~Mystring() { delete[] this->str; }
 Mystring::Mystring(const Mystring& other) {
-		length = strlen(other.str); // copy constructor, essential for dynamic memmory
+		length = strlen(other.str); // copy constructor, essential for dynamic memory
 		this->str = new char[length + 1];
 		for (int i = 0; i < length; i++)
 		{ this->str[i] = other.str[i]; }
@@ -29,18 +30,19 @@ Mystring Mystring::operator=(const Mystring& other) {
 	this->str[length] = '\0';
 	return*this;}
 Mystring Mystring::operator +(const Mystring& other) {
-		Mystring newStr; // string concotenation
-		int thisLength = strlen(this->str);
-		int otherLength = strlen(other.str);
-		newStr.length = thisLength + otherLength;
-		newStr.str = new char[thisLength + otherLength + 1];
-		int i = 0;
-		for (; i < thisLength; i++)
-		{ newStr.str[i] = this->str[i];	}
-		for (int j = 0; j < otherLength; j++, i++)
-		{ newStr.str[i] = other.str[j]; }
-		newStr.str[thisLength + otherLength] = '\0';
-		return newStr;	}
+	Mystring newStr;
+	int thisLength = strlen(this->str);
+	int otherLength = strlen(other.str);
+	newStr.length = thisLength + otherLength;
+	newStr.str = new char[thisLength + otherLength + 1];
+	int i = 0;
+	for (; i < thisLength; i++)
+	{ newStr.str[i] = this->str[i];	}
+	for (int j = 0; j < otherLength; j++, i++)
+	{ newStr.str[i] = other.str[j];	}
+	newStr.str[thisLength + otherLength] = '\0';
+	return newStr;
+}
 bool Mystring::operator==(const Mystring& other) {
 	if (this->length != other.length)
 		return false;
@@ -102,4 +104,5 @@ void Mystring::Swap(Mystring& other){
 	this->str = other.str;
 	other.str = temp;
 	temp = NULL;
-}
+};
+

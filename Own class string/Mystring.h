@@ -22,8 +22,7 @@ public:
 	void PopBack();
 	void Copy(char str[], int length, int position);
 	void Swap(Mystring& other);
-private: 
+private:
 	char* str; // array pointer to store char
 	int length;
 };
-

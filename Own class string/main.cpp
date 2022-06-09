@@ -47,6 +47,5 @@ int main(){
 	cout << endl;
 	str2.Print();
 	cout << endl;
-	
 	return 0;
 }
